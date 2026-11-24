@@ -46,6 +46,23 @@
     document.head.appendChild(s);
   }
 
+  /* Withdrawal: stop measurement and remove Google Analytics cookies set earlier. */
+  function withdrawAnalytics() {
+    if (config.GA_ID) { window["ga-disable-" + config.GA_ID] = true; }
+    if (window.gtag) { window.gtag("consent", "update", { analytics_storage: "denied" }); }
+    var host = location.hostname;
+    var domains = [host, "." + host, "." + host.replace(/^www\./, "")];
+    document.cookie.split(";").forEach(function (c) {
+      var name = c.split("=")[0].trim();
+      if (name === "_ga" || name.indexOf("_ga_") === 0 || name === "_gid") {
+        domains.forEach(function (d) {
+          document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=" + d;
+        });
+        document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+      }
+    });
+  }
+
   var banner = document.querySelector(".cookie");
   var consent = readConsent();
 
@@ -59,7 +76,7 @@
     var accept = banner.querySelector("[data-consent='accept']");
     var decline = banner.querySelector("[data-consent='decline']");
     if (accept) accept.addEventListener("click", function () { writeConsent("granted"); banner.classList.remove("show"); loadAnalytics(); });
-    if (decline) decline.addEventListener("click", function () { writeConsent("denied"); banner.classList.remove("show"); });
+    if (decline) decline.addEventListener("click", function () { writeConsent("denied"); banner.classList.remove("show"); withdrawAnalytics(); });
   }
 
   // Privacy page: allow changing the choice later.
@@ -67,6 +84,15 @@
     btn.addEventListener("click", function () {
       try { localStorage.removeItem(CONSENT_KEY); } catch (e) {}
       if (banner) banner.classList.add("show");
+    });
+  });
+
+  /* ---------- Aggregate outbound-click events (only exist after consent; no personal data) ---------- */
+  document.querySelectorAll("[data-track]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      if (window.gtag && readConsent() === "granted") {
+        window.gtag("event", el.getAttribute("data-track"), { link_location: el.getAttribute("data-track-location") || "unknown" });
+      }
     });
   });
 

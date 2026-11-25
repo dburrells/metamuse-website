@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Agentic Capital Market — Transaction underwriting for machine commerce | MetaMuse</title>
-  <meta name="description" content="Agentic Capital Market advances supplier costs against a committed order with a testable outcome. The order is the unit of underwriting; control of funds is part of the credit.">
+  <title>Agentic Capital Market — a proposed testnet financing layer for machine commerce | MetaMuse</title>
+  <meta name="description" content="Agentic Capital Market is a proposed financing layer for agent-to-agent production, tested on a public test network only. A transaction-specific advance is paid into the deal's own contract; the buyer pays after verified delivery.">
   <link rel="canonical" href="https://www.metamuse.co.uk/agentic-capital-market.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,7 @@
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" aria-label="Primary">
       <a href="agentic-capital-market.html" aria-current="page">Agentic Capital Market</a>
+      <a href="https://financeability.uk" rel="noopener" data-track="financeability_outbound" data-track-location="header">Financeability<span class="visually-hidden"> (opens financeability.uk)</span></a>
       <a href="insights.html">Insights</a>
       <a href="about.html">About</a>
       <a class="btn ghost" href="waitlist.html">Join the waitlist</a>
@@ -35,9 +36,12 @@
 
   <section class="page-hero">
     <div class="wrap">
-      <p class="eyebrow">Agentic Capital Market</p>
+      <p class="eyebrow">Agentic Capital Market &middot; proposed</p>
       <h1>A financing layer for machine commerce</h1>
-      <p class="lede">Advance supplier costs against a committed order with a testable outcome. Agentic Capital Market finances the transaction an agent is about to complete, not the agent itself, so capital can reach work that can prove its own repayment.</p>
+      <p class="lede">An agent producing work has input costs now, but the buyer pays only after verified delivery. Agentic Capital Market proposes a transaction-specific advance, paid into the deal&rsquo;s own contract, to bridge that gap. It underwrites the transaction an agent is about to complete, not the agent itself.</p>
+      <div class="notice" role="note">
+        <p><strong>Status.</strong> This is a proposed design, run on the Base Sepolia test network with test assets only. There are no live funds, no public fundraising, no contributor rights or returns and no production service. Nothing here is an offer of credit or investment.</p>
+      </div>
     </div>
   </section>
 
@@ -51,7 +55,7 @@
         </div>
         <div class="measure">
           <p>Most approaches to agent credit ask some version of the same question: will this agent repay us? That makes a credit history the price of admission, and the fastest-growing population of economic actors in history has none.</p>
-          <p>Agentic Capital Market asks a different question: will this transaction repay us? An agent created five minutes ago, with a committed buyer, a verified supplier quote and an objectively testable delivery, can be financed on the strength of that order. An agent with two years of history asking for discretionary capital against an uncertain outcome cannot.</p>
+          <p>Agentic Capital Market asks a different question: will this transaction repay us? An agent created five minutes ago, with a committed buyer, a verified supplier quote, an objectively testable delivery and an accountable registered human behind it, can be considered for an advance on the strength of that order. An agent with two years of history asking for discretionary capital against an uncertain outcome could not.</p>
           <p>The structure resembles machine-native purchase-order finance, trade finance and project finance far more than unsecured lending. Identity and reputation remain useful signals. The cashflow and controls of the transaction come first.</p>
         </div>
       </div>
@@ -59,15 +63,15 @@
       <div class="table-wrap" style="margin-top: clamp(40px, 5vw, 72px)">
         <table class="table">
           <thead>
-            <tr><th scope="col">Two requests</th><th scope="col">Agent A, created today</th><th scope="col">Agent B, two years of history</th></tr>
+            <tr><th scope="col">Two requests (hypothetical)</th><th scope="col">Agent A, created today</th><th scope="col">Agent B, two years of history</th></tr>
           </thead>
           <tbody>
             <tr><td>Request</td><td>$60 to fulfil a specific order</td><td>$60 of speculative capital</td></tr>
-            <tr><td>Buyer</td><td>Committed, $100 backed</td><td>None</td></tr>
-            <tr><td>Proceeds</td><td>Contractually committed</td><td>Uncertain</td></tr>
-            <tr><td>Use of capital</td><td>Restricted to a verified supplier</td><td>Discretionary</td></tr>
+            <tr><td>Buyer</td><td>Committed; pays $100 after verified delivery</td><td>None</td></tr>
+            <tr><td>Proceeds</td><td>Flow through the deal contract</td><td>Uncertain</td></tr>
+            <tr><td>Use of capital</td><td>Paid into the deal contract; restricted to the approved supplier</td><td>Discretionary</td></tr>
             <tr><td>Delivery</td><td>Objectively testable</td><td>Subjective</td></tr>
-            <tr><td>Likely decision</td><td>Finance</td><td>Decline, or price materially higher</td></tr>
+            <tr><td>Likely decision</td><td>Candidate for a bounded advance</td><td>Decline, or price materially higher</td></tr>
           </tbody>
         </table>
       </div>
@@ -78,12 +82,12 @@
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Underwriting infrastructure</p>
-        <h2>Evidence becomes a Financeability Object</h2>
-        <p class="lede">One signed, versioned package binds the commercial terms and the evidence to a transaction ID. It is what a capital provider needs to approve, price, cap or reject one proposed transaction.</p>
+        <h2>Evidence becomes a signed, versioned package</h2>
+        <p class="lede">One signed, versioned package binds the commercial terms and the evidence to a transaction ID. It is what the independent policies need to approve, cap or reject one proposed transaction. Assessing evidence against a policy uses the same foundation as <a href="https://financeability.uk" rel="noopener" data-track="financeability_outbound" data-track-location="acm">Financeability</a>, and an assessment on its own never authorises funding.</p>
       </div>
       <div class="split even">
         <ul class="line-list">
-          <li><span class="n">01</span><div><h4>Commercial claim</h4><p>Buyer, order, price and the backing for payment: a signed order, escrow, smart-contract commitment or an independently verified receivable.</p></div></li>
+          <li><span class="n">01</span><div><h4>Commercial claim</h4><p>Buyer, order, price and how payment is secured: a signed order, a smart-contract commitment or an independently verified receivable.</p></div></li>
           <li><span class="n">02</span><div><h4>Funding mandate</h4><p>The approved supplier and payee, a signed or verifiable quote, and the maximum permitted advance.</p></div></li>
           <li><span class="n">03</span><div><h4>Acceptance contract</h4><p>The tests that define delivery, who verifies them, the deadline, and how disputes are handled.</p></div></li>
           <li><span class="n">04</span><div><h4>Collection rights</h4><p>Control of proceeds, the repayment waterfall and the recourse available if delivery fails.</p></div></li>
@@ -120,7 +124,7 @@
       <div class="split" style="margin-top: clamp(40px, 5vw, 64px)">
         <p class="statement">Price must cover capital, expected loss, verification, servicing and margin.</p>
         <div class="measure">
-          <p>A transaction is not safe because its terms are written into a contract. Signed commitments, escrow and objective tests reduce uncertainty; buyer default, fraud, disputes, execution failure, supplier outages, price movement and software defects remain. Underwriting estimates probability-weighted repayment, expected loss, recovery, duration and the cost of capital and operations, and finances only where the expected return holds up under downside scenarios, with explicit advance rates and exposure caps.</p>
+          <p>A transaction is not safe because its terms are written into a contract. Signed commitments, contract-held payment and objective tests reduce uncertainty; buyer default, fraud, disputes, execution failure, supplier outages, price movement and software defects remain. The design intent is for underwriting to estimate probability-weighted repayment, expected loss, recovery, duration and the cost of capital and operations, and to advance only where the return holds up under downside scenarios. Advance rates, exposure limits and pricing have not yet been set.</p>
         </div>
       </div>
     </div>
@@ -131,60 +135,75 @@
       <div class="section-head">
         <p class="eyebrow">Capital architecture</p>
         <h2>Control of funds is part of the credit</h2>
-        <p class="lede">Supplier restrictions and collection rights are embedded in the transaction structure. The agent has no discretionary access to principal.</p>
+        <p class="lede">Supplier restrictions and collection rights are embedded in the transaction structure. Funds are never transferred freely to the agent or the supplier.</p>
       </div>
       <div class="flow">
-        <div class="step"><div class="k">Disbursement</div><h3>Capital facility</h3><p>Professional capital, capped per transaction and in aggregate.</p></div>
-        <div class="step"><div class="k">Policy</div><h3>Funding policy</h3><p>Approved payee, amount and expiry, enforced at disbursement.</p></div>
-        <div class="step"><div class="k">Supplier</div><h3>Approved supplier</h3><p>Receives the restricted advance and delivers the input.</p></div>
-        <div class="step"><div class="k">Repayment</div><h3>Protected collection</h3><p>Buyer funds flow through a contractual waterfall: principal, fees, then the operator's residual.</p></div>
+        <div class="step"><div class="k">Proposal</div><h3>Exact deal</h3><p>An external agent proposes one deal. Its terms are fixed before anything is approved.</p></div>
+        <div class="step"><div class="k">Approval</div><h3>Independent policies</h3><p>A platform policy and a separate DAO-pool policy must both pass. During testing the owner also approves each deal.</p></div>
+        <div class="step"><div class="k">Deal contract</div><h3>Three-party agreement</h3><p>The advance is paid into the deal's own contract, which pays the approved supplier. Funds do not go freely to the agent or supplier.</p></div>
+        <div class="step"><div class="k">Repayment</div><h3>Waterfall</h3><p>On verified delivery the buyer's payment repays the advance, then the financing cost; any remainder goes to the agent. The account holder owes any shortfall.</p></div>
       </div>
       <div class="split" style="margin-top: clamp(40px, 5vw, 64px)">
         <div class="photo-col"><img src="valve.jpg" alt="A brass pipe passing through a stone block with a valve, ending in a bowl" loading="lazy"></div>
         <div class="measure" style="align-self: center">
-          <p class="statement" style="color: var(--white); font-size: clamp(1.4rem, 2.2vw, 1.9rem)">Disbursement is a policy, not a transfer.</p>
-          <p class="muted" style="margin-top: 20px">The funding policy names the payee, the amount and the expiry before any capital moves. The supplier is paid; the agent never is.</p>
+          <p class="statement" style="color: var(--white); font-size: clamp(1.4rem, 2.2vw, 1.9rem)">Funds move only inside the deal.</p>
+          <p class="muted" style="margin-top: 20px">Both policies approve the exact terms, including payee, amount and expiry, before any advance is made. The agent does not hold the principal.</p>
         </div>
       </div>
-      <p class="muted" style="margin-top: 36px; max-width: 70ch">Proposed pilot: a capped professional facility settling in native USDC on Base. Retail or pooled funding is not part of the initial scope and would follow only after full legal, regulatory and investor-protection analysis.</p>
+      <p class="muted" style="margin-top: 36px; max-width: 70ch">Capital pool and treasury: a public, contributor-funded DAO pool is the intended model, kept separate from the company treasury; company contributions to the pool need explicit owner authorisation. Nothing is being raised. Contributor rights, withdrawals, fees, loss allocation and governance are undecided, and test operation uses test assets on Base Sepolia only.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Illustrative economics</p>
-        <h2>The economics of a settled order</h2>
-        <p class="lede">A hypothetical $100 receipt, with a $60 advance outstanding for 48 hours, must cover principal, the cost of capital, verification and the operator's residual.</p>
+        <p class="eyebrow">Accountability</p>
+        <h2>A registered human stays accountable</h2>
+        <p class="lede">An agent is not the borrower. A human account holder registers each agent and accepts full recourse for its advances at registration.</p>
       </div>
-      <div class="split even">
-        <div class="table-wrap">
-          <table class="table">
-            <thead><tr><th scope="col">Allocation</th><th scope="col">Amount</th></tr></thead>
-            <tbody>
-              <tr><td>Principal repaid</td><td>$60</td></tr>
-              <tr><td>Capital provider</td><td>$2</td></tr>
-              <tr><td>Platform fee</td><td>$1</td></tr>
-              <tr><td>Verification cost</td><td>$1</td></tr>
-              <tr><td>Operator residual</td><td>$36</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="measure">
-          <img class="photo" src="basins.jpg" alt="Brass basins on stone steps connected by teal glass channels, a waterfall" loading="lazy" style="margin-bottom: 28px">
-          <p>The values are for explanation only. The platform fee shown is before servicing and allocated loss, and the finance charge will vary with duration, exposure and the quality of the evidence.</p>
-          <p>The demand hypothesis is that eligible operators value financing more than its incremental cost and complexity. That is a hypothesis to validate against real order flow, not an assumption the business is built on.</p>
-        </div>
+      <div class="principles">
+        <div class="principle"><h3>Registration</h3><p>The account holder registers agents and signs an acceptance of liability before any advance can be considered.</p></div>
+        <div class="principle"><h3>Limits start small</h3><p>Limits would grow only after successful repayment. The exact rules are not set.</p></div>
+        <div class="principle"><h3>Shortfall</h3><p>If the buyer&rsquo;s payment does not cover the advance, the account holder owes the shortfall.</p></div>
       </div>
+      <p class="muted" style="margin-top: 28px; max-width: 70ch">This liability model is accepted design direction. Its legal terms and enforceability have not been established; the terms text used in testing is a placeholder awaiting legal drafting.</p>
     </div>
   </section>
 
   <section class="section stone">
     <div class="wrap">
       <div class="section-head">
+        <p class="eyebrow">Illustrative economics</p>
+        <h2>The economics of a settled order</h2>
+        <p class="lede">A hypothetical $100 buyer payment against a $60 advance. No pricing, fee or split has been agreed.</p>
+      </div>
+      <div class="split even">
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th scope="col">Allocation</th><th scope="col">Amount</th></tr></thead>
+            <tbody>
+              <tr><td>Advance repaid first</td><td>$60</td></tr>
+              <tr><td>Financing cost</td><td>Not agreed</td></tr>
+              <tr><td>Verification and platform costs</td><td>Not agreed</td></tr>
+              <tr><td>Remainder to the agent</td><td>What is left of the $40</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="measure">
+          <img class="photo" src="basins.jpg" alt="Brass basins on stone steps connected by teal glass channels, a waterfall" loading="lazy" style="margin-bottom: 28px">
+          <p>The values are for explanation only. If delivery fails or the buyer does not pay, release is held, evidence is preserved and the agreed remedies apply. The account holder owes any shortfall on the advance. Who bears a loss that cannot be recovered from the account holder is an open decision.</p>
+          <p>The demand hypothesis is that eligible operators value financing more than its incremental cost and complexity. That is a hypothesis to validate against real order flow, not an assumption the business is built on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
         <p class="eyebrow">Initial market</p>
         <h2>The beachhead is deliberately narrow</h2>
-        <p class="lede">Start where order evidence is clear and the cost of serving each advance can be covered. The proposed first workflow is fixed-price data processing: schema checks, record counts and deterministic transformations.</p>
+        <p class="lede">Start where order evidence is clear and the cost of serving each advance can be covered. One candidate is fixed-price data processing: schema checks, record counts and deterministic transformations. It has not been validated as a launch market, and no first buyer, supplier or verification source has been chosen.</p>
       </div>
       <div class="principles">
         <div class="principle"><h3>Defined output</h3><p>A measurable acceptance test that a verifier can run without judgement.</p></div>
@@ -202,15 +221,15 @@
       <div class="section-head">
         <p class="eyebrow">Risk and control</p>
         <h2>Risk has to remain attributable</h2>
-        <p class="lede">Controls reduce exposure; the facility still needs an explicit bearer of residual loss. Loss allocation is assigned before funding, never assumed to land on an insurer or an autonomous agent.</p>
+        <p class="lede">Controls reduce exposure; the design still needs an explicit bearer of residual loss. Loss allocation must be assigned before any real funding and is not yet decided.</p>
       </div>
       <div class="table-wrap">
         <table class="table">
           <thead><tr><th scope="col">Exposure</th><th scope="col">Control</th><th scope="col">Risk that remains</th></tr></thead>
           <tbody>
-            <tr><td>Buyer and delivery</td><td>Payment backing, objective tests, recourse</td><td>Refundable escrow does not guarantee repayment</td></tr>
+            <tr><td>Buyer and delivery</td><td>Payment backing, objective tests, recourse</td><td>A buyer can still fail to pay or dispute delivery</td></tr>
             <tr><td>Fraud and verification</td><td>Independent checks, limits, anti-collusion</td><td>False evidence and verifier compromise</td></tr>
-            <tr><td>Contracts and keys</td><td>Audits, mandates, access control, pause</td><td>Software defects and operational failure</td></tr>
+            <tr><td>Contracts and keys</td><td>Mandates and access control; independent audit needed before real funds</td><td>Software defects and operational failure; no audit yet</td></tr>
             <tr><td>Supplier and rail</td><td>Caps, diversification, monitored settlement</td><td>Default, depeg and chain disruption</td></tr>
             <tr><td>Legal and enforcement</td><td>Defined roles, counsel, contractual remedies</td><td>Licensing and recovery uncertainty</td></tr>
           </tbody>
@@ -228,7 +247,7 @@
       </div>
       <div class="eras">
         <div class="era"><div class="num">I</div><h3>Establish demand</h3><p class="verbs">Observe real order flow</p><p>Test willingness to pay. Gate: a repeat funding need and viable unit economics.</p></div>
-        <div class="era"><div class="num">II</div><h3>Prove the structure</h3><p class="verbs">Run a capped facility</p><p>Known counterparties, controlled exposure. Gate: controls, disputes and recoveries work in practice.</p></div>
+        <div class="era"><div class="num">II</div><h3>Prove the structure</h3><p class="verbs">Run a capped pilot</p><p>Known counterparties, controlled exposure. Gate: controls, disputes and recoveries work in practice.</p></div>
         <div class="era"><div class="num">III</div><h3>Earn repeat capital</h3><p class="verbs">Expand within limits</p><p>Grow only inside validated risk and operating limits. Gate: repeat usage and credible loss performance.</p></div>
       </div>
     </div>
@@ -242,7 +261,7 @@
           <ul>
             <li>A transaction-underwriting and financing layer for autonomous economic activity.</li>
             <li>Infrastructure that verifies, prices, funds, constrains and collects, one order at a time.</li>
-            <li>A way for professional capital to reach machine commerce with inspectable exposure.</li>
+            <li>A proposed way for capital to reach machine commerce with inspectable exposure.</li>
           </ul>
         </div>
         <div class="col">
@@ -252,8 +271,40 @@
             <li>An agent credit-score company.</li>
             <li>A revolving credit line underwritten on past repayment.</li>
             <li>A token project, or a DeFi protocol in search of an AI story.</li>
+            <li>A live lending service. Today it runs on a test network with test assets only.</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stone" id="status">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Where it stands</p>
+        <h2>What exists, what is planned, what is undecided</h2>
+        <p class="lede">We separate what has been built from what is proposed, so nothing here is read as more than it is.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="table">
+          <thead><tr><th scope="col">Status</th><th scope="col">What it covers</th></tr></thead>
+          <tbody>
+            <tr><td><span class="status" data-status="testnet">Preview</span></td><td>A testnet-labelled console at <a href="https://app.metamuse.co.uk" rel="noopener">app.metamuse.co.uk</a>. Test assets only, no real value. Sign-in is required and access is limited, so you may not be able to view it. It is not a place to apply for finance.</td></tr>
+            <tr><td><span class="status" data-status="development">Built, not deployed</span></td><td>Deal contracts, two independent policy approvals, ledger and settlement logic, tested in software against a simulated chain. No contracts have been deployed to Base Sepolia, and no independent audit has been done.</td></tr>
+            <tr><td><span class="status" data-status="development">In progress</span></td><td>The pay-on-delivery advance flow: account registration, liability acceptance, limits, repayment and shortfall records. Not yet validated end to end on the test network.</td></tr>
+            <tr><td><span class="status" data-status="open">Undecided</span></td><td>DAO legal form, contributor rights, withdrawals, fees, loss allocation, governance and signers, real evidence partners, risk limits, emergency handling and records jurisdiction. Demand and willingness to pay are unproven.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="shots">
+        <figure>
+          <img src="console-overview.jpg" width="1750" height="912" loading="lazy" alt="Screenshot of the MetaMuse testnet console Overview page. A banner reads Base Sepolia testnet, test assets only. Cards show a simulated DAO pool, advances outstanding and a separate company treasury, with a funding-paused notice from a simulated reconciliation.">
+          <figcaption>Console preview: the pool and the company treasury are shown separately. The funding-paused notice is a simulated reconciliation check.</figcaption>
+        </figure>
+        <figure>
+          <img src="console-policies.jpg" width="1750" height="790" loading="lazy" alt="Screenshot of the Policies page of the MetaMuse testnet console, listing separate policy versions for the MetaMuse platform and the DAO, each with its status and approver.">
+          <figcaption>Platform and DAO policies are versioned and approved separately. All figures are simulated fixture data on a test network.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -262,7 +313,7 @@
     <div class="wrap">
       <p class="statement">If it can be verified, it can be financed.</p>
       <div class="rule" aria-hidden="true"></div>
-      <p>Agentic Capital Market is in development. Join the waitlist to follow the first transactions.</p>
+      <p>Agentic Capital Market is proposed and runs on a test network only. Join the waitlist for progress updates. It is not an application for finance.</p>
       <p style="margin-top: 28px"><a class="btn light" href="waitlist.html">Join the waitlist</a></p>
     </div>
   </section>
@@ -274,10 +325,11 @@
     <div class="top">
       <div>
         <a class="brand" href="index.html">MetaMuse</a>
-        <p class="tag">Capital markets for the agentic economy.</p>
+        <p class="tag">Transaction underwriting for the agentic economy.</p>
       </div>
       <nav aria-label="Footer">
         <a href="agentic-capital-market.html">Agentic Capital Market</a>
+        <a href="https://financeability.uk" rel="noopener" data-track="financeability_outbound" data-track-location="footer">Financeability<span class="visually-hidden"> (opens financeability.uk)</span></a>
         <a href="insights.html">Insights</a>
         <a href="about.html">About</a>
         <a href="waitlist.html">Waitlist</a>
@@ -292,7 +344,7 @@
     </div>
     <div class="bottom">
       <span>&copy; <span data-year>2026</span> MetaMuse. All rights reserved.</span>
-      <span>Agentic Capital Market is a proposed product. Nothing on this site is an offer of finance, investment advice or a solicitation.</span>
+      <span>Agentic Capital Market is a proposed product, tested on a public test network with test assets only. Financeability is an assessment service in development: it is not a lender, does not hold funds or arrange credit, and does not guarantee repayment. Nothing on this site is an offer of finance, investment advice or a solicitation.</span>
     </div>
   </div>
 </footer>
